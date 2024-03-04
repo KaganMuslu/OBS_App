@@ -9,5 +9,7 @@ namespace OBS_App.Models
         public int deenene { get; set; }
 
         public int nene { get; set; }
+
+        public int mamao { get; set; }
     }
 }
