@@ -1,0 +1,477 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<title>Preskool - Dashboard</title>
+
+	<link rel="shortcut icon" href="~/panel/img/favicon.png">		
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/panel/plugins/feather/feather.css">
+	<link rel="stylesheet" href="~/panel/plugins/icons/flags/flags.css">
+	<link rel="stylesheet" href="~/panel/plugins/fontawesome/css/fontawesome.min.css">
+	<link rel="stylesheet" href="~/panel/plugins/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/panel/css/style.css">
+</head>
+
+<body>
+	<div class="main-wrapper">
+
+		<div class="header">
+
+			<div class="header-left">
+				<a asp-controller="Home" asp-action="index" class="logo">
+					<img src="~/panel/img/logo.png" alt="Logo">
+				</a>
+				<a asp-controller="Home" asp-action="index" class="logo logo-small">
+					<img src="~/panel/img/logo-small.png" alt="Logo" width="30" height="30">
+				</a>
+			</div>
+
+			<div class="menu-toggle">
+				<a href="javascript:void(0);" id="toggle_btn">
+					<i class="fas fa-bars"></i>
+				</a>
+			</div>
+
+			<div class="top-nav-search">
+				<form>
+					<input type="text" class="form-control" placeholder="Ara">
+					<button class="btn" type="submit"><i class="fas fa-search"></i></button>
+				</form>
+			</div>
+
+
+			<a class="mobile_btn" id="mobile_btn">
+				<i class="fas fa-bars"></i>
+			</a>
+
+
+			<ul class="nav user-menu">
+				<li class="nav-item dropdown language-drop me-2">
+					<a href="#" class="dropdown-toggle nav-link header-nav-list" data-bs-toggle="dropdown">
+						<i class="flag flag-tr"></i>
+					</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="javascript:;"><i class="flag flag-tr me-2"></i>Türkçe</a>
+						<a class="dropdown-item" href="javascript:;"><i class="flag flag-us me-2"></i>English</a>
+						<a class="dropdown-item" href="javascript:;"><i class="flag flag-fr me-2"></i>Francais</a>
+					</div>
+				</li>
+
+				<li class="nav-item dropdown noti-dropdown me-2">
+					<a href="#" class="dropdown-toggle nav-link header-nav-list" data-bs-toggle="dropdown">
+						<img src="~/panel/img/icons/header-icon-05.svg" alt>
+					</a>
+					<div class="dropdown-menu notifications">
+						<div class="topnav-dropdown-header">
+							<span class="notification-title">Bildirimler</span>
+							<a href="javascript:void(0)" class="clear-noti"> Temizle </a>
+						</div>
+						<div class="noti-content">
+							<ul class="notification-list">
+								<li class="notification-message">
+									<a href="#">
+										<div class="media d-flex">
+											<span class="avatar avatar-sm flex-shrink-0">
+												<img class="avatar-img rounded-circle" alt="User Image" src="~/panel/img/profiles/avatar-13.jpg">
+											</span>
+											<div class="media-body flex-grow-1">
+												<p class="noti-details"><span class="noti-title">Kağan Muslu</span> size <span class="noti-title">mesaj gönderdi</span></p>
+												<p class="noti-time"><span class="notification-time">4 dk önce</span></p>
+											</div>
+										</div>
+									</a>
+								</li>
+								
+							</ul>
+						</div>
+						<div class="topnav-dropdown-footer">
+							<a href="#">Tüm Bildirimleri Görüntüle</a>
+						</div>
+					</div>
+				</li>
+
+				<li class="nav-item zoom-screen me-2">
+					<a href="#" class="nav-link header-nav-list">
+						<img src="~/panel/img/icons/header-icon-04.svg" alt>
+					</a>
+				</li>
+
+				<li class="nav-item dropdown has-arrow new-user-menus">
+					<a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+						<div class="user-img">
+							<img class="rounded-circle" src="https://pbs.twimg.com/profile_images/2861121762/8b50471dbedc1b0968bdb9d79a894ba3_400x400.jpeg" width="31" alt="Ryan Taylor">
+							<div class="user-text">
+								<h6>Ali AKAYTAY</h6>
+								<p class="text-muted mb-0">Bölüm Başkan Yardımcısı</p>
+							</div>
+						</div>
+					</a>
+					<div class="dropdown-menu">
+						<div class="user-header">
+							<div class="avatar avatar-sm">
+								<img src="https://pbs.twimg.com/profile_images/2861121762/8b50471dbedc1b0968bdb9d79a894ba3_400x400.jpeg" alt="User Image" class="avatar-img rounded-circle">
+							</div>
+							<div class="user-text">
+								<h6>Ali AKAYTAY</h6>
+								<p class="text-muted mb-0">Bölüm Başkan Yardımcısı</p>
+							</div>
+						</div>
+						<a class="dropdown-item" href="profile.html">Profilim</a>
+						<a class="dropdown-item" href="inbox.html">Gelen Kutusu</a>
+						<a class="dropdown-item" asp-action="Logout" asp-controller="Account">Çıkış Yap</a>
+					</div>
+				</li>
+
+			</ul>
+
+		</div>
+
+
+		<div class="sidebar" id="sidebar">
+			<div class="sidebar-inner slimscroll">
+				<div id="sidebar-menu" class="sidebar-menu">
+					<ul>
+						<li class="menu-title">
+							<span>Main Menu</span>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-book-reader"></i> <span>Bölümler</span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a asp-controller="Bolum" asp-action="Index">Bölüm Listesi</a></li>
+								<li><a href="add-subject.html">Bölüm Ekle</a></li>
+								<li><a href="edit-subject.html">Bölüm Düzenle</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-book-reader"></i> <span>Dersler</span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a asp-controller="Ders" asp-action="Index">Ders Listesi</a></li>
+								<li><a href="add-subject.html">Ders Ekle</a></li>
+								<li><a href="edit-subject.html">Ders Düzenle</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-book-reader"></i> <span>Duyurular</span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a asp-controller="Duyuru" asp-action="Index">Duyuru Listesi</a></li>
+								<li><a href="add-subject.html">Duyuru Ekle</a></li>
+								<li><a href="edit-subject.html">Duyuru Düzenle</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-book-reader"></i> <span>Fakülteler</span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a asp-controller="Fakulte" asp-action="Index">Duyuru Listesi</a></li>
+								<li><a href="add-subject.html">Fakülte Ekle</a></li>
+								<li><a href="edit-subject.html">Fakülte Düzenle</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-book-reader"></i> <span>Öğrenciler</span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a asp-controller="Ogrenci" asp-action="Index">Öğrenci Listesi</a></li>
+								<li><a href="add-subject.html">Öğrenci Ekle</a></li>
+								<li><a href="edit-subject.html">Öğrenci Düzenle</a></li>
+							</ul>
+						</li>
+
+
+
+						<hr>
+
+
+						<li class="submenu">
+							<a href="#"><i class="feather-grid"></i> <span> Dashboard</span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a href="index-2.html">Admin Dashboard</a></li>
+								<li><a href="teacher-dashboard.html">Öğretmen Dashboard</a></li>
+								<li><a href="student-dashboard.html">Öğrenci Dashboard</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-graduation-cap"></i> <span> Öğrenciler</span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a href="students.html">Öğrenci Listesi</a></li>
+								<li><a href="student-details.html">Öğrenci Görünüm</a></li>
+								<li><a href="add-student.html">Öğrenci Ekle</a></li>
+								<li><a href="edit-student.html">Öğrenci Düzenle</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Öğretmenler</span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a href="teachers.html">Öğretmen Listesi</a></li>
+								<li><a href="teacher-details.html">Öğretmen Görünüm</a></li>
+								<li><a href="add-teacher.html">Öğretmen Ekle</a></li>
+								<li><a href="edit-teacher.html">Öğretmen Düzenle</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-building"></i> <span> Fakülteler</span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a href="departments.html">Fakülte Listesi</a></li>
+								<li><a href="add-department.html">Fakülte Ekle</a></li>
+								<li><a href="edit-department.html">Fakülte Düzenle</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-book-reader"></i> <span>Bölümler</span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a asp-controller="Bolum" asp-action="Index" >Bölüm Listesi</a></li>
+								<li><a href="add-subject.html">Bölüm Ekle</a></li>
+								<li><a href="edit-subject.html">Bölüm Düzenle</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-clipboard"></i> <span> Faturalar</span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a href="invoices.html">Invoices List</a></li>
+								<li><a href="invoice-grid.html">Invoices Grid</a></li>
+								<li><a href="add-invoice.html">Add Invoices</a></li>
+								<li><a href="edit-invoice.html">Edit Invoices</a></li>
+								<li><a href="view-invoice.html">Invoices Details</a></li>
+								<li><a href="invoices-settings.html">Invoices Settings</a></li>
+							</ul>
+						</li>
+						<li class="menu-title">
+							<span>Management</span>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-file-invoice-dollar"></i> <span> Hesaplar</span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a href="fees-collections.html">Fees Collection</a></li>
+								<li><a href="expenses.html">Expenses</a></li>
+								<li><a href="salary.html">Salary</a></li>
+								<li><a href="add-fees-collection.html">Add Fees</a></li>
+								<li><a href="add-expenses.html">Add Expenses</a></li>
+								<li><a href="add-salary.html">Add Salary</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="index-2.html"><i class="fas fa-holly-berry"></i> <span>Tatil</span></a>
+						</li>
+						<li>
+							<a href="index-2.html"><i class="fas fa-comment-dollar"></i> <span>Ücretler</span></a>
+						</li>
+						<li>
+							<a href="index-2.html"><i class="fas fa-clipboard-list"></i> <span>Sınav Listesi</span></a>
+						</li>
+						<li>
+							<a href="index-2.html"><i class="fas fa-calendar-day"></i> <span>Etkinlikler</span></a>
+						</li>
+						<li>
+							<a href="index-2.html"><i class="fas fa-table"></i> <span>Zaman Tablosu</span></a>
+						</li>
+						<li>
+							<a href="index-2.html"><i class="fas fa-book"></i> <span>Kütüphane</span></a>
+						</li>
+						<li class="submenu">
+							<a href="#">
+								<i class="fa fa-newspaper"></i> <span> Bloglar</span>
+								<span class="menu-arrow"></span>
+							</a>
+							<ul>
+								<li><a href="blog.html">Tüm Bloglar</a></li>
+								<li><a href="add-blog.html">Blog Ekle</a></li>
+								<li><a href="edit-blog.html">Blog Düzenle</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="settings.html"><i class="fas fa-cog"></i> <span>Ayarlar</span></a>
+						</li>
+						<li class="menu-title">
+							<span>Sayfalar</span>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-shield-alt"></i> <span> Authentication </span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a href="login.html">Giriş</a></li>
+								<li><a href="register.html">Kayıt</a></li>
+								<li><a href="forgot-password.html">Şifremi Unuttum</a></li>
+								<li><a href="error-404.html">Hata Sayfası</a></li>
+							</ul>
+						</li>
+						<li class="active">
+							<a href="blank-page.html"><i class="fas fa-file"></i> <span>Boş Sayfa</span></a>
+						</li>
+						<li class="menu-title">
+							<span>Others</span>
+						</li>
+						<li>
+							<a href="sports.html"><i class="fas fa-baseball-ball"></i> <span>Sporlar</span></a>
+						</li>
+						<li>
+							<a href="hostel.html"><i class="fas fa-hotel"></i> <span>Konaklama</span></a>
+						</li>
+						<li>
+							<a href="transport.html"><i class="fas fa-bus"></i> <span>Ulaşım</span></a>
+						</li>
+						<li class="menu-title">
+							<span>UI Interface</span>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fab fa-get-pocket"></i> <span>Temel UI </span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a href="alerts.html">Alerts</a></li>
+								<li><a href="accordions.html">Accordions</a></li>
+								<li><a href="avatar.html">Avatar</a></li>
+								<li><a href="badges.html">Badges</a></li>
+								<li><a href="buttons.html">Buttons</a></li>
+								<li><a href="buttongroup.html">Button Group</a></li>
+								<li><a href="breadcrumbs.html">Breadcrumb</a></li>
+								<li><a href="cards.html">Cards</a></li>
+								<li><a href="carousel.html">Carousel</a></li>
+								<li><a href="dropdowns.html">Dropdowns</a></li>
+								<li><a href="grid.html">Grid</a></li>
+								<li><a href="images.html">Images</a></li>
+								<li><a href="lightbox.html">Lightbox</a></li>
+								<li><a href="media.html">Media</a></li>
+								<li><a href="modal.html">Modals</a></li>
+								<li><a href="offcanvas.html">Offcanvas</a></li>
+								<li><a href="pagination.html">Pagination</a></li>
+								<li><a href="popover.html">Popover</a></li>
+								<li><a href="progress.html">Progress Bars</a></li>
+								<li><a href="placeholders.html">Placeholders</a></li>
+								<li><a href="rangeslider.html">Range Slider</a></li>
+								<li><a href="spinners.html">Spinner</a></li>
+								<li><a href="sweetalerts.html">Sweet Alerts</a></li>
+								<li><a href="tab.html">Tabs</a></li>
+								<li><a href="toastr.html">Toasts</a></li>
+								<li><a href="tooltip.html">Tooltip</a></li>
+								<li><a href="typography.html">Typography</a></li>
+								<li><a href="video.html">Video</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i data-feather="box"></i> <span>Elementler </span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a href="ribbon.html">Ribbon</a></li>
+								<li><a href="clipboard.html">Clipboard</a></li>
+								<li><a href="drag-drop.html">Drag & Drop</a></li>
+								<li><a href="rating.html">Rating</a></li>
+								<li><a href="text-editor.html">Text Editor</a></li>
+								<li><a href="counter.html">Counter</a></li>
+								<li><a href="scrollbar.html">Scrollbar</a></li>
+								<li><a href="notification.html">Notification</a></li>
+								<li><a href="stickynote.html">Sticky Note</a></li>
+								<li><a href="timeline.html">Timeline</a></li>
+								<li><a href="horizontal-timeline.html">Horizontal Timeline</a></li>
+								<li><a href="form-wizard.html">Form Wizard</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i data-feather="bar-chart-2"></i> <span> Grafikler </span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a href="chart-apex.html">Apex Charts</a></li>
+								<li><a href="chart-js.html">Chart Js</a></li>
+								<li><a href="chart-morris.html">Morris Charts</a></li>
+								<li><a href="chart-flot.html">Flot Charts</a></li>
+								<li><a href="chart-peity.html">Peity Charts</a></li>
+								<li><a href="chart-c3.html">C3 Charts</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i data-feather="award"></i> <span> İkonlar </span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a href="icon-fontawesome.html">Fontawesome Icons</a></li>
+								<li><a href="icon-feather.html">Feather Icons</a></li>
+								<li><a href="icon-ionic.html">Ionic Icons</a></li>
+								<li><a href="icon-material.html">Material Icons</a></li>
+								<li><a href="icon-pe7.html">Pe7 Icons</a></li>
+								<li><a href="icon-simpleline.html">Simpleline Icons</a></li>
+								<li><a href="icon-themify.html">Themify Icons</a></li>
+								<li><a href="icon-weather.html">Weather Icons</a></li>
+								<li><a href="icon-typicon.html">Typicon Icons</a></li>
+								<li><a href="icon-flag.html">Flag Icons</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-columns"></i> <span> Formlar </span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a href="form-basic-inputs.html">Basic Inputs </a></li>
+								<li><a href="form-input-groups.html">Input Groups </a></li>
+								<li><a href="form-horizontal.html">Horizontal Form </a></li>
+								<li><a href="form-vertical.html"> Vertical Form </a></li>
+								<li><a href="form-mask.html"> Form Mask </a></li>
+								<li><a href="form-validation.html"> Form Validation </a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-table"></i> <span> Tablolar </span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a href="tables-basic.html">Basic Tables </a></li>
+								<li><a href="data-tables.html">Data Table </a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="javascript:void(0);"><i class="fas fa-code"></i> <span>Multi Level</span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li class="submenu">
+									<a href="javascript:void(0);"> <span>Level 1</span> <span class="menu-arrow"></span></a>
+									<ul>
+										<li><a href="javascript:void(0);"><span>Level 2</span></a></li>
+										<li class="submenu">
+											<a href="javascript:void(0);"> <span> Level 2</span> <span class="menu-arrow"></span></a>
+											<ul>
+												<li><a href="javascript:void(0);">Level 3</a></li>
+												<li><a href="javascript:void(0);">Level 3</a></li>
+											</ul>
+										</li>
+										<li><a href="javascript:void(0);"> <span>Level 2</span></a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="javascript:void(0);"> <span>Level 1</span></a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-wrapper">
+			<div class="content container-fluid">
+
+				<div class="page-header">
+					<div class="row">
+						<div class="col">
+							<h3 class="page-title">X Page</h3>
+							<ul class="breadcrumb">
+								<li class="breadcrumb-item"><a>X Page</a></li>
+								<li class="breadcrumb-item active">X Page</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				@RenderBody()
+
+			</div>
+		</div>
+		<footer>
+			<p>COPYRIGHT © 2023 DREAMSTECHNOLOGIES.</p>
+		</footer>
+        </main>
+    </div>
+
+    
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="~/panel/js/feather.min.js" type="d3e9fe501045cc33aa3e5f15-text/javascript"></script>
+    <script src="~/panel/plugins/slimscroll/jquery.slimscroll.min.js" type="d3e9fe501045cc33aa3e5f15-text/javascript"></script>
+    <script src="~/panel/plugins/apexchart/apexcharts.min.js" type="d3e9fe501045cc33aa3e5f15-text/javascript"></script>
+    <script src="~/panel/plugins/apexchart/chart-data.js" type="d3e9fe501045cc33aa3e5f15-text/javascript"></script>
+
+    <script src="~/panel/js/script.js" type="d3e9fe501045cc33aa3e5f15-text/javascript"></script>
+    <script src="~/panel/js/rocket-loader.min.js" data-cf-settings="d3e9fe501045cc33aa3e5f15-|49" defer></script>
+
+</body>
+</html>

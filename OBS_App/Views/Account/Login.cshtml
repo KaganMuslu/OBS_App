@@ -1,0 +1,64 @@
+﻿@model LoginViewsModel
+
+@{
+
+    Layout = "~/Views/Shared/_Layout_Login.cshtml";
+}
+
+<div class="main-wrapper login-body">
+    <div class="login-wrapper">
+        <div class="container">
+            <div class="loginbox">
+                <div class="login-left">
+                    <img class="img-fluid" src="~/panel/img/login.png" alt="Logo">
+                </div>
+                <div class="login-right">
+                    <div class="login-right-wrap">
+                        <h1 class="mb-4">Öğrenci Bilgi Sistemi</h1>
+
+                        <h2>Giriş Yap</h2>
+
+                        <form asp-action="Login" asp-controller="Account" method="post">
+                            <div asp-validation-summary="All" class="text-danger">
+                                <div class="form-group">
+                                    <label>E-Posta <span class="login-danger">*</span></label>
+                                    <input asp-for="Email" class="form-control" type="text">
+                                    <span class="profile-views"><i class="fas fa-user-circle"></i></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Şifre <span class="login-danger">*</span></label>
+                                    <input asp-for="Password" class="form-control pass-input" type="password">
+                                    <span class="profile-views feather-eye toggle-password"></span>
+                                </div>
+                                <div class="forgotpass">
+                                    <div class="remember-me">
+                                        <label class="custom_check mr-2 mb-0 d-inline-flex remember-me">
+                                            Beni Hatırla
+                                            <input asp-for="RememberMe" type="checkbox" name="radio">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <a href="forgot-password.html">Şifremi Unuttum</a>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-block" type="submit">Giriş Yap</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="login-or">
+                            <span class="or-line"></span>
+                            <span class="span-or">Veya</span>
+                        </div>
+
+                        <div class="text-center">
+                            <a class="btn btn-danger">E-Devlet İle Giriş Yap</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
