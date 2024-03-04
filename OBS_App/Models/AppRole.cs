@@ -5,5 +5,7 @@ namespace OBS_App.Models
 	public class AppRole : IdentityRole
 	{
         public int asd { get; set; }
+
+        public int deenene { get; set; }
     }
 }
